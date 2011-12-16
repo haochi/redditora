@@ -60,6 +60,9 @@ $(function(){
   $("#playlist").on("click", ".remove", function(){
     var track = $(this).parent(".track")
       , id = track.attr("rel");
+    if(track.find(".play").text() == "playing"){
+      $("#next").click();
+    }
     track.parent().remove();
     playlist.remove(id);
   });
