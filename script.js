@@ -1,5 +1,6 @@
 var playlist = new Queue
   , player = false
+  , subreddits = []
   , Bandcamp = {base: "http://api.bandcamp.com/api/", key: "snaefellsjokull"}
   , SoundCloud = {base: "http://api.soundcloud.com/", key: "e350357eef0347515be167f33dd3240d"};
 
@@ -80,6 +81,10 @@ $(function(){
 
   $("#subreddit_picker").submit(function(){
     var data = $(this).serializeJSON();
+    subreddits.push(data.subreddit);
+    subreddits = array_unique(subreddits);
+    location.hash = subreddits.join("|");
+
     $.getJSON("http://www.reddit.com/r/" + data.subreddit + ".json?jsonp=?", function(r){
       $.each(r.data.children, function(i, child){
         var post = child.data
@@ -124,5 +129,11 @@ $(function(){
       });
     });
     return false;
-  }).submit();
+  });
+
+  $.each(unescape(location.hash.replace(/#/, "")).split("|"), function(i, subreddit){
+    $("#subreddit").val(subreddit);
+    $("#subreddit_picker").submit();
+  });
+  $("#subreddit").val("");
 });
