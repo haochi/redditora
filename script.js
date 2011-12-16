@@ -81,10 +81,11 @@ $(function(){
 
   $("#subreddit_picker").submit(function(){
     var data = $(this).serializeJSON();
+    if(data.subreddit == "") return false;
+
     subreddits.push(data.subreddit);
     subreddits = array_unique(subreddits);
     location.hash = subreddits.join("|");
-
     $.getJSON("http://www.reddit.com/r/" + data.subreddit + ".json?jsonp=?", function(r){
       $.each(r.data.children, function(i, child){
         var post = child.data
