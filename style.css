@@ -1,0 +1,4 @@
+body { padding-top: 20px; }
+#flash_player{width: 0; height: 0; visibility: hidden;}
+#playlist{margin-left: 0; list-style: none;}
+#playlist .label{ margin-right: 10px; cursor: pointer; }
