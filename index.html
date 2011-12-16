@@ -2,13 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Bootstrap, from Twitter</title>
+    <title>Redditora</title>
     <link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
   <body>
     <div class="container">
       <div class="content">
-        <h1>Redditora</h1>
+        <div class="page-header">
+          <h1>Redditora <small>by <a href="http://twitter.com/haochi" target="_blank">@haochi</a></small></h1>
+        </div>
         <form id="subreddit_picker" class="row">
           <div class="span5">
             <a class="btn info" id="play">Play</a>
@@ -32,6 +34,12 @@
           </div>
         </div>
       </div>
+      <footer>
+        <p>
+          &copy; <a href="http://ihaochi.com">Haochi Chen</a>,
+          based on <a href="http://www.reddit.com/r/SomebodyMakeThis/comments/ne1i8/smt_a_script_app_whatever_that_plays_all_the/">an idea by redditor bfwu</a>.
+        </p>
+      </footer>
     </div>
 
     <div id="flash_player"></div>
