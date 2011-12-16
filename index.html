@@ -12,15 +12,14 @@
           <h1>Redditora <small>by <a href="http://twitter.com/haochi" target="_blank">@haochi</a></small></h1>
         </div>
         <form id="subreddit_picker" class="row">
-          <div class="span5">
+          <div class="span6">
+            <input type="text" class="span5" name="subreddit" id="subreddit" placeholder="subreddit name (e.g. music, listentothis)" />
+            <input type="submit" class="btn success" value="Add" />
+          </div>
+          <div class="span4">
             <a class="btn info" id="play">Play</a>
-            <a class="btn info" id="pause">Pause</a>
             <a class="btn primary" id="prev">Prev</a>
             <a class="btn primary" id="next">Next</a>
-          </div>
-          <div class="span7">
-            <input type="text" class="span6" name="subreddit" id="subreddit" placeholder="subreddit name (e.g. music, listentothis)" />
-            <input type="submit" class="btn success" value="Add" />
           </div>
           <div class="span3">
             <a class="btn danger" id="clear">Clear Playlist</a>
@@ -28,7 +27,7 @@
         </form>
         <hr/>
         <div id="playlist_container" class="row">
-          <div class="span15">
+          <div class="span13">
             <h2>Playlist</h2>
             <div id="playlist"></div>
           </div>
@@ -47,6 +46,7 @@
     <script src="queue.js"></script>
     <script src="helpers.js"></script>
     <script src="jwplayer.js"></script>
+    <script src="shortcut.js"></script>
     <script src="script.js"></script>
   </body>
 </html>

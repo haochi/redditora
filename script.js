@@ -1,6 +1,6 @@
 var playlist = new Queue
-  , player = false
   , subreddits = []
+  , player = false
   , Bandcamp = {base: "http://api.bandcamp.com/api/", key: "snaefellsjokull"}
   , SoundCloud = {base: "http://api.soundcloud.com/", key: "e350357eef0347515be167f33dd3240d"};
 
@@ -24,6 +24,7 @@ playlist.on("push", function(){
   $("#playlist").append(parent);
   if(!player){ // initial setup
     $("#playlist .track:first .success").text("playing");
+    $("#play").text("Pause");
     player = jwplayer('flash_player');
     player.setup({
       flashplayer: '/player.swf',
@@ -75,8 +76,15 @@ $(function(){
     $("#playlist").empty();
   });
 
-  $("#play, #pause").click(function(){
-    player[$(this).attr("id")]();
+  $("#play").click(function(){
+    var play = $("#play");
+    if(player.getState() == "PLAYING"){
+      player.pause();
+      play.text("Play");
+    }else{
+      player.play();
+      play.text("Pause");
+    }
   });
 
   $("#subreddit_picker").submit(function(){
@@ -137,4 +145,9 @@ $(function(){
     $("#subreddit_picker").submit();
   });
   $("#subreddit").val("");
+
+  // shortcuts
+  $.each({space: "#play", left: "#prev", right: "#next"}, function(key, id){
+    shortcut.add(key ,function(){$(id).click();});
+  });
 });
