@@ -27,7 +27,7 @@ playlist.on("push", function(){
     $("#play").text("Pause");
     player = jwplayer('flash_player');
     player.setup({
-      flashplayer: '/player.swf',
+      flashplayer: 'player.swf',
       file: playlist.current().file,
       height: 0,
       width: 0,
