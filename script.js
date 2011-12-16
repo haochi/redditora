@@ -61,7 +61,7 @@ $(function(){
     var track = $(this).parent(".track")
       , id = track.attr("rel");
     $("#next").click();
-    track.remove();
+    track.parent().remove();
     playlist.remove(id);
   });
 
